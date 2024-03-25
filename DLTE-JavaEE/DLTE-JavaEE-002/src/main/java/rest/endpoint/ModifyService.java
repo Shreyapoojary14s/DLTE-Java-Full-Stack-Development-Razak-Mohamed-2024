@@ -20,9 +20,9 @@ import java.util.ResourceBundle;
 
 @WebServlet("/rest/")
 public class ModifyService extends HttpServlet {
-    CreditCardServices cardServices;
-    private ResourceBundle resourceBundle;
-    private Logger logger;
+    public CreditCardServices cardServices;
+    public ResourceBundle resourceBundle;
+    public Logger logger;
     @Override
     public void init() throws ServletException {
         StorageTarget storageTarget=new DatabaseTarget();
@@ -31,7 +31,7 @@ public class ModifyService extends HttpServlet {
         logger= LoggerFactory.getLogger(ReadByIdService.class);
     }
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         try{
             Gson gson=new Gson();
